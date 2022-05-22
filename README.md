@@ -9,6 +9,7 @@ I personally use this to help me study without having to look at my phone to vie
 (Yes, it does move that slow on your screen. Feel free to suggest on how I can better smoothen the movement of the graph)
 
 To use this, you need to install pydexcom - https://github.com/gagebenne/pydexcom
+And insert your dexcom account information on line 20. 
 
 This project is done in mmol/L units, but it does not affect the graph if your country primarily uses mg/dL.
 If you intend on changing the height of the hyper/hypo bars you will need to convert into mmol/L. 1 mmol/L = 18 mg/dL
