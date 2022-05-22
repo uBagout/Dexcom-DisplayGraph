@@ -1,6 +1,7 @@
 # Dexcom-DisplayGraph
 Graph overlay that plots Dexcom data to pc screen, convenient for focusing on tasks whilst avoiding phone distraction.
-It does not block clicking, except on the grid used to drag the graph around into position.
+It does not block clicking, except on the icon used to drag the graph around into position.
+The graph stays on the top level of your screen and you should see it at all times, unless you are inside a fullscreen application.
 
 I personally use this to help me study without having to look at my phone to view my dexcom data.
 ![ezgif-4-232921c404](https://user-images.githubusercontent.com/59146220/169684683-453ff356-c556-4b92-9a4f-c3d1b3c1db3e.gif)
