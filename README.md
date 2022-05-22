@@ -6,7 +6,7 @@ The graph stays on the top level of your screen and you should see it at all tim
 I personally use this to help me study without having to look at my phone to view my dexcom data.
 ![ezgif-4-232921c404](https://user-images.githubusercontent.com/59146220/169684683-453ff356-c556-4b92-9a4f-c3d1b3c1db3e.gif)
 
-(Yes, it does move that slow on your screen. Feel free to suggest on how I can better smoothen the movement of the graph)
+Feel free to suggest on how I can better smoothen the movement of the graph, as well as fix the ugly white outline that surrounds all elements on the graph when not placed ontop a white background.
 
 To use this, you need to install pydexcom - https://github.com/gagebenne/pydexcom  
 And insert your dexcom account information on line 20. 
