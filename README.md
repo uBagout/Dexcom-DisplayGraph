@@ -4,6 +4,7 @@ It does not block clicking, except on the grid used to drag the graph around int
 
 I personally use this to help me study without having to look at my phone to view my dexcom data.
 ![ezgif-4-232921c404](https://user-images.githubusercontent.com/59146220/169684683-453ff356-c556-4b92-9a4f-c3d1b3c1db3e.gif)
+
 (Yes, it does move that slow on your screen. Feel free to suggest on how I can better smoothen the movement of the graph)
 
 To use this, you need to install pydexcom - https://github.com/gagebenne/pydexcom
