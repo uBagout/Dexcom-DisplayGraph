@@ -69,8 +69,7 @@ class App(tk.Tk):
         a.set_xlim(hours*12, 0.0)
         a.axis('off')
 
-        if res != None and len(res) != 0: #if data isnt pulled / dexcom user does not have data in last 24 hours
-            #data lapses can occur, eg if one is in the shower and receiver is too far from the transmitter we can have empty phases of data
+        if res != None and len(res) != 0: #no data check
             #we remake our x (time) and y (bg value) lists to plot each time we display the graph.
             #could optimise this by: changing each x value by 5 minutes, in update(), and if exceeds timeframe, pop x and y rather than recalculate full list each time
 
@@ -86,7 +85,7 @@ class App(tk.Tk):
             else:
                 timelimit = timelimit.replace(hour = timelimit.hour-hours)
 
-            #take all times in res that convene to the timeframe   
+            #take all times in res that convene to the selected timeframe   
             #could find earliest corresponding indice that fits within the timeframe, but we still need to iterate over to assign x so is a minimal improvement
             for r in res:
                 if r.time > timelimit:
@@ -98,8 +97,6 @@ class App(tk.Tk):
             a.plot(x, y, color='gray', alpha=1.0)
 
         a.hlines([4.0 , 12.0], 0, hours*12, ['r', 'y']) #12 sets of 5 minute intervals in an hour
-
-        #create curving for dexcom graph by using trend rates? - very low priority - graph appears natural and not jaggy - will test with lower timeframes eventually / rapid trends
 
         # finish tkinter gui stuff, save graph location for next run, use env variables / text config for program settings
         #figure out better graph transparency, currently there is a non transparent outline around the plot, but it works fine on white backgrounds (most browser webpages)
@@ -119,7 +116,3 @@ class App(tk.Tk):
 
 app = App()
 app.mainloop()
-
-
-
-
