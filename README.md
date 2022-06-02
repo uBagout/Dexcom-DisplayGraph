@@ -9,7 +9,7 @@ I personally use this to help me study without having to look at my phone to vie
 Feel free to suggest on how I can better smoothen the movement of the graph, as well as fix the ugly white outline that surrounds all elements on the graph when not placed ontop a white background.
 
 To use this, you need to install pydexcom - https://github.com/gagebenne/pydexcom  
-And insert your dexcom account information on line 20. 
+And insert your dexcom account information inside the .env file. 
 
 This project is done in mmol/L units, but it does not affect the graph if your country primarily uses mg/dL.
 If you intend on changing the height of the hyper/hypo bars you will need to convert into mmol/L. 1 mmol/L = 18 mg/dL
