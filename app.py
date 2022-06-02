@@ -43,56 +43,43 @@ def animate(i):
     a.axis('off')
     a.hlines([4.0 , 12.0], 0, TIMEFRAME//12, colors= ['r', 'y'])
     if res != None and len(res) != 0: #no data check
-        #we remake our x (time) and y (bg value) lists to plot each time we display the graph.
-        #could optimise this by: changing each x value by 5 minutes, in update(), and if exceeds TIMEFRAME, pop x and y rather than recalculate full list each time         
+          
         x = []
         y = []
         timelimit = datetime.datetime.now()
-            
-        #evaluate our timelimit to n HOURS before current time (there is a better way to do this before structuring the timelimit as a datetime)
+        
         if timelimit.hour-TIMEFRAME//60 < 0:
             timelimit = timelimit.replace(day = timelimit.day-1)
             timelimit = timelimit.replace(hour = timelimit.hour-TIMEFRAME//60+24)
         else:
             timelimit = timelimit.replace(hour = timelimit.hour-TIMEFRAME//60)
 
-        #take all times in res that convene to the selected TIMEFRAME   
-        #could find earliest corresponding indice that fits within the TIMEFRAME, but we still need to iterate over to assign x so is a minimal improvement
+       
         for r in res:
              if r.time > timelimit:
                 delta = (r.time - timelimit) // datetime.timedelta(0, 300) #300s = 5 minute intervals
                 x.append(delta) 
                 y.append(r.mmol_l)
         x.reverse()
-    
+   
         a.plot(x, y, color='gray', alpha=1.0)
-        #12 sets of 5 minute intervals in an hour
-    
-        # finish tkinter gui stuff, save graph location for next run
-        #figure out better graph transparency, currently there is a non transparent outline around the plot, but it works fine on white backgrounds (most browser webpages)
 
 
 class App(tk.Tk):
     def __init__(self, *args, **kwargs): #use to initialise settings
         tk.Tk.__init__(self, *args, **kwargs)
         self.overrideredirect(True)
+        self.configure(background='white')
         self.wm_attributes("-transparentcolor", "white")
         self.wm_attributes("-topmost", True) #draw window ontop of everything else as we want a permanent overlay
         #self.wm_attributes("-alpha", 1.0)
 
-        
-        f = plt.figure(figsize=(5,2), facecolor="none")
+          
         f_canvas = FigureCanvasTkAgg(f, self)
         f_canvas.get_tk_widget().pack(side=tk.TOP, fill=tk.BOTH, expand=0)
-        a = f.add_subplot()
-   
-        timeframe = 1440 #timeframe in minutes
-        res = dexcom.get_glucose_readings(timeframe)  
-        self.display_graph(a, res)
 
-        timer_thread = threading.Thread(target = self.update, args = (a, res))
-        timer_thread.start()
-
+        animate(1) #force the animation to happen 
+    
 
         self.grip = tk.Label(self, bitmap="gray25")
         self.grip.place(x= 63, y=45)
@@ -101,6 +88,7 @@ class App(tk.Tk):
         self.grip.bind("<ButtonRelease-1>", self.stoppos)
         self.grip.bind("<B1-Motion>", self.move)
 
+        self.geometry(f"+{XPOS}+{YPOS}")
 
     def startpos(self, event):
         self.x = event.x
