@@ -1,12 +1,13 @@
 # Dexcom-DisplayGraph
-Graph overlay that plots Dexcom data to pc screen, convenient for focusing on tasks whilst avoiding phone distraction.
+Minimalistic Graph Overlay that plots Dexcom data to screen, convenient for focusing on tasks as checking phone for dexcom data is no longer required, minimising potential distractions.
 It does not block clicking, except on the icon used to drag the graph around into position.
 The graph stays on the top level of your screen and you should see it at all times, unless you are inside a fullscreen application.
+Keep it superimposed ontop a white background for the most aesthetic interface.
 
 I personally use this to help me study without having to look at my phone to view my dexcom data.
 ![ezgif-4-a740b1b922](https://user-images.githubusercontent.com/59146220/171528206-28f7dbd1-646d-4749-ae5b-6b532a32fb56.gif)
 
-Feel free to suggest on how I can fix the ugly white outline that surrounds all elements on the graph (noticeable when not placed ontop a white background).
+I encourage any suggestions/pull requests to fix the white outline that surrounds all elements on the graph, though I believe this would require a module change (from Tkinter).
 
 To use this, you need to install pydexcom - https://github.com/gagebenne/pydexcom  
 And insert your dexcom account information inside the .env file. 
