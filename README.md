@@ -1,6 +1,6 @@
 # Dexcom-DisplayGraph
-Minimalistic Graph Overlay that plots Dexcom data to screen, convenient for focusing on tasks as checking phone for dexcom data is no longer required, minimising potential distractions.
-It does not block clicking, except on the icon used to drag the graph around into position.
+Minimalistic Graph Overlay that plots Dexcom data to screen, convenient for focusing on pc tasks, as checking phone for dexcom data is no longer required, minimising smartphone distractions.
+It does not block clicking through, except on the icon used to drag the graph around into position.
 The graph stays on the top level of your screen and you should see it at all times, unless you are inside a fullscreen application.
 Keep it superimposed ontop a white background for the most aesthetic interface.
 
